@@ -1,0 +1,6 @@
+50 error Error: Command failed with exit code 128: git tag v1.0.0 -m v1.0.0
+50 error fatal: tag 'v1.0.0' already exists
+50 error     at makeError (/Users/sanjoy/my-development/interview-preparation/node_modules/execa/lib/error.js:60:11)
+50 error     at handlePromise (/Users/sanjoy/my-development/interview-preparation/node_modules/execa/index.js:118:26)
+50 error     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+50 error     at async Promise.all (index 0)
