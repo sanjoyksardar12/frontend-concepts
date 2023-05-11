@@ -35,3 +35,9 @@ packages/
 
 package.json
 ```
+
+- Run application
+
+```
+npx lerna run dev --scope=remixapp
+```
