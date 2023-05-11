@@ -1,0 +1,3 @@
+export {
+  FooterCopy
+} from './Footer';
