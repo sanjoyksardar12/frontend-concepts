@@ -32,3 +32,11 @@ body {
   justify-content: center;
   text-align: center; */
 }
+
+
+
+/* application level */
+.padding-y-20{
+  padding-top: 20px ;
+  padding-bottom: 20px;
+}

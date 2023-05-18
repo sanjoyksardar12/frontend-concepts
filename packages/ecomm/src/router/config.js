@@ -1,6 +1,7 @@
 import Root from "../routes/root/index.js";
 import Hooks from "../routes/hooks.js"
-import UseDebounce from "../routes/useDebounce/index.js";
+import UseDebounceRoute from "../routes/useDebounceRoute/index.js";
+import HooksLifeCycleRoute from "../routes/hooksLifeCycleRoute/index.js";
 
 
 
@@ -23,8 +24,13 @@ const RouterConfig = [{
         //   sidebarName: "UseDebounce"
         // },
         {
+          path: "hooks-life-cycle",
+          element: HooksLifeCycleRoute,
+          sidebarName: "Hook Life Cycle"
+        },
+        {
           path: "use-debounce",
-          element: UseDebounce,
+          element: UseDebounceRoute,
           sidebarName: "UseDebounce"
         },
         {
