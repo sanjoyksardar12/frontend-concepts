@@ -7,25 +7,19 @@ const useElementSize = () => {
   const [size, setSize] = useState({ height: 0, width: 0 })
 
   const handleSize = useCallback(() => {
-    debugger
-    console.log("handleSize")
     setSize({
       height: ref?.offsetHeight || 0,
       width: ref?.offsetWidth || 0
     })
-  })
+  },[ref?.offsetHeight, ref?.offsetWidth])
 
   useEventListener("resize", handleSize);
 
   useLayoutEffect(() => {
-    console.log("useISOMorphicLayoutEffect------------------");
     handleSize();
-  }, [ref?.offsetHeight, ref?.offsetWidth]);
+  }, [handleSize, ref?.offsetHeight, ref?.offsetWidth]);
 
-  console.log("ref?.offsetHeight", ref?.offsetHeight, ref?.offsetWidth)
-  console.log("ref", ref);
-
-  return [setRef, size, ref];
+  return [setRef, ref, size, ];
 }
 
 export default useElementSize;  

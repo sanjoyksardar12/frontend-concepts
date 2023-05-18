@@ -1,7 +1,10 @@
 import { useEffect, useLayoutEffect } from "react";
 
 const useISOMorphicLayoutEffect = ()=>{
-    return typeof window === "undefined"? useEffect: useLayoutEffect
+    const type =  typeof window === "undefined"? useEffect: useLayoutEffect
+
+    console.log("type", type,typeof window === "undefined" )
+    return type
 }
 
 export default useISOMorphicLayoutEffect;
