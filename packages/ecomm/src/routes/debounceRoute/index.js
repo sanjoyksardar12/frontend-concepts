@@ -1,14 +1,20 @@
 import { useState, useCallback, useEffect } from 'react';
-import useDebounce from '../../hooks/useDebounce';
+import debounce from '../../javascript-concepts/debounce';
 
-const UseDebounceRoute = () => {
+const DebounceRoute = () => {
   const [inputValue, setInputValue] = useState("");
-  const [debouncedValue] = useDebounce(inputValue, 300);
+  const [debouncedValue, setDebounceValue] = useState("")
 
   const handleInputChange = useCallback((event) => {
-    setInputValue(event.target.value)
+    setInputValue(event.target.value);
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const debounceHandler = useCallback(debounce(setDebounceValue, 300), [])
+
+  useEffect(() => {
+    debounceHandler(inputValue)
+  }, [debounceHandler, inputValue])
 
   useEffect(() => {
     //here you can call any api
@@ -16,7 +22,7 @@ const UseDebounceRoute = () => {
 
   return (
     <div className='router-body'>
-      <h1 className='padding-y-20'>use Debounce hook</h1>
+      <h1 className='padding-y-20'> Debounce function</h1>
       <p className='padding-y-20'>Input value: {inputValue}</p>
       <p className='padding-y-20'>Debounced value: {debouncedValue} </p>
       <input value={inputValue} onChange={handleInputChange} />
@@ -24,4 +30,4 @@ const UseDebounceRoute = () => {
   )
 }
 
-export default UseDebounceRoute;
+export default DebounceRoute;

@@ -1,3 +1,4 @@
+// https://www.geeksforgeeks.org/interval-tree/
 class Interval {
   constructor(low, high) {
     this.low = low;

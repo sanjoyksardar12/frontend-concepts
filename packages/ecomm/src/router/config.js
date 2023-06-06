@@ -1,13 +1,13 @@
 import Root from "../routes/root/index.js";
 import Hooks from "../routes/hooks.js"
-import UseDebounceRoute from "../routes/useDebounceRoute/index.js";
-import HooksLifeCycleRoute from "../routes/hooksLifeCycleRoute/index.js";
+import JavaScript from "../routes/javascript.js"
+import UseDebounceRoute from "../routes/useDebounceRoute";
+import HooksLifeCycleRoute from "../routes/hooksLifeCycleRoute";
+import UseSetTimeoutRoute from "../routes/useSetTimeoutRoute";
+import UseIntervalRoute from "../routes/useIntervalRoute";
+import DebounceRoute from "../routes/debounceRoute";
+import ThrottleRoute from "../routes/throttleRoute";
 
-
-
-function UseSetTimeout() {
-  return <>use setTimeout </>
-}
 
 const RouterConfig = [{
   path: "/",
@@ -34,22 +34,48 @@ const RouterConfig = [{
           sidebarName: "UseDebounce"
         },
         {
+          path: "use-interval",
+          element: UseIntervalRoute,
+          sidebarName: "UseInterval"
+        },
+        {
           path: "use-settimeout",
-          element: UseSetTimeout,
-          sidebarName: "UseSetTimeout"
-        }
+          element: UseSetTimeoutRoute,
+          sidebarName: "UseTimeout"
+        },
       ]
+    },{
+        path: "javascript",
+        element: JavaScript,
+        sidebarName: "Java Script",
+        children: [
+          {
+            path: "debounce",
+            element: DebounceRoute,
+            sidebarName: "Debounce"
+          },
+          {
+            path: "throttle",
+            element: ThrottleRoute,
+            sidebarName: "Throttle"
+          },
+          {
+            path: "interval",
+            element: UseSetTimeoutRoute,
+            sidebarName: "Interval"
+          },
+        ]
     }
   ]
 }]
 
 export const getConfigAsRouterConfig = (config) => {
-  if(!config || !config.length) return [];
-  return config.map(({path, element :  Element, children = []})=>{
+  if (!config || !config.length) return [];
+  return config.map(({ path, element: Element, children = [] }) => {
     return {
       path: path,
-      element :  <Element/>,
-      children : getConfigAsRouterConfig(children)
+      element: <Element />,
+      children: getConfigAsRouterConfig(children)
     }
   })
 }

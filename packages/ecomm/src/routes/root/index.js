@@ -1,18 +1,17 @@
-import { Outlet} from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import SideBar from "../../components/sidebar";
 import "./root.css";
 
-function Root({ children }) {
+function Root() {
   return (
     <div className="main">
-    <SideBar/>
-    <div className="container">
-      <p>Root Content:</p>
-     <Outlet/>
-    </div>
+      <SideBar />
+      <div className="container">
+        <p>Root Content:</p>
+        <Outlet />
+      </div>
     </div>
   )
 }
-
 
 export default Root;

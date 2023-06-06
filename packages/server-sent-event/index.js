@@ -127,7 +127,7 @@ app.get('/sse', (req, res) => {
   const pusher = setInterval(() => {
     console.log("sending sse events data.............")
     sseStream.write({
-      event: 'server-time',
+      event: 'server-time',  //type of event
       data: new Date().toTimeString()
     })
   }, 1000)

@@ -1,0 +1,15 @@
+**Goggle calender
+
+1. General Requirements
+  1. Support different views(year, month, day)
+  2. Multiuser support ( live-event invites, user invites)
+  3. Event view(check the details) + support conflicting events
+  4. Export /Import events(so user can use it in offline);
+  5. Creating remainers that are pushed to the user devicePixelRatio
+  //
+  6. Goggle calender allows users to create, edit, and delete events.(propose new time)
+  7. multiple calenders
+  8. Event sync between browser tabs
+  9. 
+
+1.1. 

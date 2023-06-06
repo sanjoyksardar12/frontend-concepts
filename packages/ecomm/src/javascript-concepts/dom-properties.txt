@@ -1,0 +1,11 @@
+1. typeof document.querySelector(selector).getAttribute("style") will be string
+2. typeof document.querySelector(selector)[style] will be object
+
+3. node.nodeType will give numeric value
+
+4. if nodeA.nodeType === Node.TEXT_NODE, get content using nodeA.textContent
+5. get List of attributes = node.getAttributeNames()
+6. get Single Attribute node.getAttribute()
+7. a. if you want to process on childNodes use [...node.childNodes]
+   b. we can do using Array.prototype.every.call()]
+8. 
