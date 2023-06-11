@@ -12,7 +12,13 @@ class BroadcastChannelCls{
     this.broadcast.addEventListener("messageerror", this.errorMessagehandler)
   }
   broadcastMessage (content){
+    console.log("psoting....")
     this.broadcast.postMessage(content);
+  }
+  closeConnection(){
+    debugger
+    console.log("Closign copnnection....")
+    this.broadcast.close()
   }
 }
 

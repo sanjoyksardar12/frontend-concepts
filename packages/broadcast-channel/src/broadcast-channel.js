@@ -8,6 +8,8 @@ function BroadcastChannelComp() {
   const [formValue, setFormValue] = useState("")
 
   const messageHandler = function (messageEvent) {
+    // const newLocal = "message handlering...........";
+    // console.log(newLocal)
     setMessages(messages => [...messages, messageEvent.data]);
   }
 
@@ -16,29 +18,38 @@ function BroadcastChannelComp() {
   }
 
   useEffect(() => {
-    setBroadCast(new BroadcastChannelCls({
+    const instance = new BroadcastChannelCls({
       name: "testing",
       messageHandler,
       errorMessagehandler
-    }))
+    })
+
+    setBroadCast(instance)
+    console.log("instance==", instance)
+    return ()=>{
+      setBroadCast(null)
+      console.log("instance== when closing...", instance)
+      console.log("Closing connection... calling")
+      instance?.closeConnection()
+    }
   }, [])
 
-  useEffect(() => {
-    if (!broadcast) {
-      console.log("not initialized")
-      return
-    }
-    console.log("broadcast===", broadcast);
-  }, [broadcast])
+  // useEffect(() => {
+  //   if (!broadcast) {
+  //     console.log("not initialized")
+  //     return
+  //   }
+  //   console.log("broadcast===", broadcast);
+  // }, [broadcast])
 
   const handleSubmit = function (event) {
     event.preventDefault();
-    // setMessages(messages => [...messages, formValue]);
+    console.log("Submmiting form value")
+    setMessages(messages=> [...messages, formValue])
     broadcast.broadcastMessage(formValue);
     setFormValue("")
   }
 
-  console.log("messages", messages)
   return (<>
     <h3>BroadcastChannel Component</h3>
     <p><i>data will be share between tabs and iframe</i></p>
