@@ -8,8 +8,6 @@ function BroadcastChannelComp() {
   const [formValue, setFormValue] = useState("")
 
   const messageHandler = function (messageEvent) {
-    // const newLocal = "message handlering...........";
-    // console.log(newLocal)
     setMessages(messages => [...messages, messageEvent.data]);
   }
 
@@ -34,17 +32,8 @@ function BroadcastChannelComp() {
     }
   }, [])
 
-  // useEffect(() => {
-  //   if (!broadcast) {
-  //     console.log("not initialized")
-  //     return
-  //   }
-  //   console.log("broadcast===", broadcast);
-  // }, [broadcast])
-
   const handleSubmit = function (event) {
     event.preventDefault();
-    console.log("Submmiting form value")
     setMessages(messages=> [...messages, formValue])
     broadcast.broadcastMessage(formValue);
     setFormValue("")
